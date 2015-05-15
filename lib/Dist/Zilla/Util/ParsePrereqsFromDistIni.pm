@@ -8,8 +8,8 @@ use strict;
 use warnings;
 
 require Exporter;
-our @ISA = qw(Exporter);
-our @ISA = qw(parse_prereqs_from_dist_ini);
+our @ISA       = qw(Exporter);
+our @EXPORT_OK = qw(parse_prereqs_from_dist_ini);
 
 our %SPEC;
 
@@ -27,7 +27,8 @@ during dist building process, e.g. from AutoPrereqs plugin and so on. But the
 upside is that this routine can be used outside dzil and/or for `dist.ini` of
 other dists (not the current dist during dzil build process).
 
-See also: `lint-prereqs`, `Dist::Zilla::Util::CombinePrereqsFromDistInis`.
+One application of this routine is in
+`Dist::Zilla::Util::CombinePrereqsFromDistInis`.
 
 _
     args_rels => {
@@ -44,7 +45,7 @@ _
             schema => 'str*',
         },
     },
-    naked_result => 1,
+    result_naked => 1,
 };
 sub parse_prereqs_from_dist_ini {
     require Config::IOD::Reader;
