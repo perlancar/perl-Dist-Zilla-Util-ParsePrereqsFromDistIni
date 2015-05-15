@@ -67,8 +67,8 @@ sub parse_prereqs_from_dist_ini {
     for my $section (sort keys %$confhash) {
         my ($phase, $rel);
         if ($section =~ m!\A(os)?prereqs\z!i) {
-            $phase = 'requires';
-            $rel = 'runtime';
+            $phase = 'runtime';
+            $rel = 'requires';
         } elsif ($section =~ m!\A(?:os)?prereqs\s*/\s*(configure|build|test|runtime)(requires|recommends|suggests|conflicts)\z!i) {
             $phase = lc($1);
             $rel = lc($2);
